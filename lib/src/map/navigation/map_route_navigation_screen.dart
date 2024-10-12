@@ -36,7 +36,7 @@ class MapRouteNavigationScreenPageState
 
   // TextToSpeech textToSpeech = TextToSpeech();
 
-  late MaplibreMapController controller;
+  late MapLibreMapController controller;
   UserLocation? userLocation;
   UserLocation? usersLastLocation;
 
@@ -56,7 +56,7 @@ class MapRouteNavigationScreenPageState
 
   /// function called when the map is created for the first time
   ///
-  _onMapCreated(MaplibreMapController controller1) async {
+  _onMapCreated(MapLibreMapController controller1) async {
     controller = controller1;
 
     if (directionRouteResponse.toJson().isNotEmpty) {
@@ -190,7 +190,7 @@ class MapRouteNavigationScreenPageState
     // TODO: implement build
     return PopScope(
       canPop: true,
-      onPopInvoked: (bool didPop) {
+      onPopInvokedWithResult: (bool didPop, _) {
         _willPopCallback(didPop);
       },
       child: Scaffold(
@@ -213,7 +213,7 @@ class MapRouteNavigationScreenPageState
   }
 
   Widget buildMapUi() {
-    return MaplibreMap(
+    return MapLibreMap(
       styleString:
           'https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
       onMapCreated: _onMapCreated,
@@ -230,9 +230,9 @@ class MapRouteNavigationScreenPageState
       myLocationEnabled: true,
       trackCameraPosition: true,
       compassEnabled: true,
-      compassViewPosition: CompassViewPosition.TopRight,
-      myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
-      myLocationRenderMode: MyLocationRenderMode.GPS,
+      compassViewPosition: CompassViewPosition.topRight,
+      myLocationTrackingMode: MyLocationTrackingMode.trackingGps,
+      myLocationRenderMode: MyLocationRenderMode.gps,
       onUserLocationUpdated: (userLocation) {
         this.userLocation = userLocation;
 

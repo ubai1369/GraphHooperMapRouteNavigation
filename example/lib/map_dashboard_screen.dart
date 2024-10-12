@@ -15,7 +15,7 @@ class MapDashboardScreen extends StatefulWidget {
 }
 
 class MapDashboardScreenState extends State<MapDashboardScreen> {
-  MaplibreMapController? controller;
+  MapLibreMapController? controller;
   // ScrollController? draggableSheetController;
 
   // water
@@ -49,7 +49,7 @@ class MapDashboardScreenState extends State<MapDashboardScreen> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  _onMapCreated(MaplibreMapController controller) async {
+  _onMapCreated(MapLibreMapController controller) async {
     this.controller = controller;
 
     controller.onFeatureTapped.add(onFeatureTap);
@@ -260,9 +260,9 @@ class MapDashboardScreenState extends State<MapDashboardScreen> {
       myLocationEnabled: true,
       trackCameraPosition: true,
       compassEnabled: true,
-      compassViewPosition: CompassViewPosition.TopRight,
-      myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
-      myLocationRenderMode: MyLocationRenderMode.GPS,
+      compassViewPosition: CompassViewPosition.topRight,
+      myLocationTrackingMode: MyLocationTrackingMode.trackingGps,
+      myLocationRenderMode: MyLocationRenderMode.gps,
       onMapClick: (point, latLng) {
         getDataFromTheServer(latLng);
       },
